@@ -10,10 +10,12 @@ function add(n1: number, n2: number, showResult: boolean, phrase: string) {
   }
 }
 
-const number1 = 5;
+// TODO: Hover on variable name, different result between let and const
+let number1 = 5;
 const number2 = 2.8;
 const printResult = true;
 const resultPhrase = 'Result is: ';
+resultPhrase = 0;
 
 const result = add(number1, number2, printResult, resultPhrase);
 console.log(result);
