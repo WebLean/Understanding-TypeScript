@@ -1,15 +1,10 @@
-let userInput: unknown;
-let userName: string;
+const button = document.querySelector('button');
 
-userInput = 5;
-userInput = 'Max';
-if (typeof userInput === 'string') {
-  userName = userInput;
+function clickHandler(message: string) {
+  console.log('Clicked! ' + message);
 }
 
-function generateError(message: string, code: number): never {
-  throw { message: message, errorCode: code };
-  // while (true) {}
+// a comment
+if (button) {
+  button.addEventListener('click', clickHandler.bind(null, "You're welcome!"));
 }
-
-generateError('An error occurred', 500);
