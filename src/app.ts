@@ -1,22 +1,25 @@
-let appId = 'abc';
-const button = document.querySelector('button');
+const userName = 'Max';
+// username = "Maximilian";
+let age = 30;
 
-function add(n1: number, n2: number) {
-  if (n1 + n2 > 0) {
-    return n1 + n2;
-  }
-  // return
+age = 29;
+
+// "var" has Global scope
+var result;
+
+function add(a: number, b: number) {
+  // "let" has Block scope
+  let result2;
+  result = a + b;
+  return result;
 }
 
-function clickHandler(message: string, age: number) {
-  let username;
-  console.log('Clicked! ' + message);
+console.log(result);
+
+if (age > 20) {
+  var isOld = true;
+  let isOld2 = true;
 }
 
-// a comment
-if (button) {
-  button.addEventListener(
-    'click',
-    clickHandler.bind(null, "You're welcome!", 30)
-  );
-}
+// isOld make Error in TypeScript, but in JavaScript, It's not
+console.log(isOld);
