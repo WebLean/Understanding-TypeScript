@@ -1,20 +1,11 @@
-const hobbies = ['Sports', 'Cooking'];
-const activeHobbies = ['Hiking'];
-activeHobbies.push(...hobbies);
+class Department {
+  name: string;
 
-const person = { firstName: 'Max', age: 30 };
-const copiedPerson = { ...person };
+  constructor(n: string) {
+    this.name = n;
+  }
+}
 
-const add = (...numbers: number[]) => {
-  return numbers.reduce((a, b) => a + b, 0);
-};
+const accounting = new Department('name');
 
-const addedNumbers = add(5, 10, 2, 3.7);
-console.log(addedNumbers);
-
-const [hobby1, hobby2, ...remainingHobbies] = hobbies;
-console.log(hobbies, hobby1, hobby2);
-
-const { firstName: userName, age } = person;
-
-console.log(userName, age);
+console.log(accounting);
