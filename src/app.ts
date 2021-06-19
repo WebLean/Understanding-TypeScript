@@ -42,3 +42,42 @@ function extractAndConvert<T extends object, U extends keyof T>(
 }
 
 console.log(extractAndConvert({ name: 'Jonghyeon' }, 'name'));
+
+class DataStorage<T extends string | number | boolean> {
+  private data: T[] = [];
+
+  addItem(item: T) {
+    this.data.push(item);
+  }
+
+  removeItem(item: T) {
+    if (this.data.indexOf(item) === -1) {
+      return;
+    }
+    this.data.splice(this.data.indexOf(item), 1); // Can be -1
+  }
+
+  getItems() {
+    return [...this.data];
+  }
+}
+
+const textStorage = new DataStorage<string>();
+textStorage.addItem('Jonghyeon');
+textStorage.addItem('Max');
+textStorage.addItem('Manu');
+console.log(textStorage.getItems());
+
+const numberStorage = new DataStorage<number>();
+numberStorage.addItem(1);
+numberStorage.addItem(2);
+numberStorage.addItem(3);
+console.log(numberStorage.getItems());
+
+// const objStorage = new DataStorage<object>();
+// const jonghyeonObj = { name: 'Jonghyeon' };
+// objStorage.addItem(jonghyeonObj);
+// objStorage.addItem({ name: 'Max' });
+// // ...
+// objStorage.removeItem(jonghyeonObj); // Error solution cause of reference type
+// console.log(objStorage.getItems());
